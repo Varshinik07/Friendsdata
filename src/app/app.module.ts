@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddfriendComponent } from './addfriend/addfriend.component';
 import{RouterModule,Routes} from '@angular/router';
-import { ViewFriendDataComponent } from './view-friend-data/view-friend-data.component'
+import { ViewFriendDataComponent } from './view-friend-data/view-friend-data.component';
+import{HttpClientModule} from '@angular/common/http';
 const appRoutes:Routes=[
   {
-    path:"",component: AddfriendComponent
+    path:"",component:AddfriendComponent
   },
   {
-    path:"view friend",component: ViewFriendDataComponent
+    path:"view friend",component:ViewFriendDataComponent
   }
 ]
 @NgModule({
@@ -25,7 +26,8 @@ const appRoutes:Routes=[
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
