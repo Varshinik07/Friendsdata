@@ -11,6 +11,7 @@ export class ViewFriendDataComponent implements OnInit {
   constructor(private myapi:ApiService) {
     this.fetchData()
    }
+   status:boolean=true
 fetchData=()=>{
   this.myapi.viewData().subscribe(
     (data)=>{

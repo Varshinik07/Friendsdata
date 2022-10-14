@@ -2,18 +2,37 @@
 <div class="container">
     <div class="row">
         <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-           <div class="row g-3">
-            <div *ngFor="let i of viewData" class="col col-12 col-sm-6 col-md-4 col-col-lg-4 col-xl-3 col-xxl-2">
-                <div class="card border-info mb-3">
-                    <div class="card-header bg-transparent border-info">{{i.name}}</div>
-                    <div class="card-body text-dark">
-                      <h5 class="card-title">{{i.friendName}}</h5>
-                      <p class="card-text">{{i.DescribeYourFriend}}</p>
-                    </div>
-                    <div class="card-footer bg-transparent border-info">{{i.friendNickName}}</div>
+         <div *ngIf="status then showData else showLoadingScreen"></div>
+         <ng-template #showData>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Friend Name</th>
+                <th scope="col">Friend Nick Name</th>
+                <th scope="col">Describe</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of viewData">
+                <td>{{i._id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.friendName}}</td>
+                <td>{{i.friendNickName}}</td>
+                <td>{{i.DescribeYourFriend}}</td>
+              </tr>
+              
+            </tbody>
+          </table>
+         </ng-template>
+         <ng-template #showLoadingScreen>
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+         </ng-template>
                   </div>
             </div>
            </div>
-        </div>
-    </div>
-</div>
+        
+
